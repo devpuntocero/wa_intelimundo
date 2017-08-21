@@ -1,0 +1,2039 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_imModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="fact_areas">
+          <Key>
+            <PropertyRef Name="id_area" />
+          </Key>
+          <Property Name="id_area" Type="int" Nullable="false" />
+          <Property Name="desc_area" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_bancos">
+          <Key>
+            <PropertyRef Name="id_banco" />
+          </Key>
+          <Property Name="id_banco" Type="int" Nullable="false" />
+          <Property Name="desc_banco" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_departamentos">
+          <Key>
+            <PropertyRef Name="id_departamento" />
+          </Key>
+          <Property Name="id_departamento" Type="int" Nullable="false" />
+          <Property Name="desc_departamento" Type="varchar" MaxLength="50" />
+          <Property Name="id_area" Type="int" />
+        </EntityType>
+        <EntityType Name="fact_especialidad_escolar">
+          <Key>
+            <PropertyRef Name="id_especialidad_escolar" />
+          </Key>
+          <Property Name="id_especialidad_escolar" Type="int" Nullable="false" />
+          <Property Name="desc_especialidad_escolar" Type="varchar" MaxLength="150" />
+          <Property Name="id_tipo_escolar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fact_estados">
+          <Key>
+            <PropertyRef Name="id_estado" />
+          </Key>
+          <Property Name="id_estado" Type="int" Nullable="false" />
+          <Property Name="desc_estado" Type="varchar" MaxLength="50" />
+          <Property Name="id_pais" Type="int" />
+        </EntityType>
+        <EntityType Name="fact_estatus">
+          <Key>
+            <PropertyRef Name="id_estatus" />
+          </Key>
+          <Property Name="id_estatus" Type="int" Nullable="false" />
+          <Property Name="desc_estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_generos">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Name="id_genero" Type="int" Nullable="false" />
+          <Property Name="desc_genero" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_im.dbo.fact_grado_escolar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="fact_grado_escolar">
+          <Key>
+            <PropertyRef Name="id_tipo_escolar" />
+          </Key>
+          <Property Name="id_grado_escolar" Type="int" />
+          <Property Name="desc_grado_escolar" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_escolar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fact_lenguajes">
+          <Key>
+            <PropertyRef Name="id_lenguaje" />
+          </Key>
+          <Property Name="id_lenguaje" Type="int" Nullable="false" />
+          <Property Name="desc_lenguaje" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_licencias">
+          <Key>
+            <PropertyRef Name="id_licencia" />
+          </Key>
+          <Property Name="id_licencia" Type="int" Nullable="false" />
+          <Property Name="desc_licencia" Type="varchar" MaxLength="50" />
+          <Property Name="caracteristicas" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="fact_marcas">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="int" Nullable="false" />
+          <Property Name="desc_marca" Type="varchar" MaxLength="50" />
+          <Property Name="id_seccion" Type="int" />
+        </EntityType>
+        <EntityType Name="fact_municipios">
+          <Key>
+            <PropertyRef Name="id_municipio" />
+          </Key>
+          <Property Name="id_municipio" Type="int" Nullable="false" />
+          <Property Name="desc_municipio" Type="varchar" MaxLength="50" />
+          <Property Name="id_estado" Type="int" />
+        </EntityType>
+        <EntityType Name="fact_nivel_escolar">
+          <Key>
+            <PropertyRef Name="id_nivel_escolar" />
+          </Key>
+          <Property Name="id_nivel_escolar" Type="int" Nullable="false" />
+          <Property Name="desc_nivel_escolar" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_nivel_lenguaje">
+          <Key>
+            <PropertyRef Name="id_nivel_lenguaje" />
+          </Key>
+          <Property Name="id_nivel_lenguaje" Type="int" Nullable="false" />
+          <Property Name="desc_nivel_lenguaje" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_paises">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="int" Nullable="false" />
+          <Property Name="desc_pais" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_secciones">
+          <Key>
+            <PropertyRef Name="id_seccion" />
+          </Key>
+          <Property Name="id_seccion" Type="int" Nullable="false" />
+          <Property Name="desc_seccion" Type="varchar" MaxLength="50" />
+          <Property Name="id_departamento" Type="int" />
+        </EntityType>
+        <EntityType Name="fact_tipo_escolar">
+          <Key>
+            <PropertyRef Name="id_tipo_escolar" />
+          </Key>
+          <Property Name="id_tipo_escolar" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_escolar" Type="varchar" MaxLength="50" />
+          <Property Name="id_nivel_escolar" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fact_tipo_rfc">
+          <Key>
+            <PropertyRef Name="id_tipo_rfc" />
+          </Key>
+          <Property Name="id_tipo_rfc" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_rfc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="fact_tipo_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="int" Nullable="false" />
+          <Property Name="desc_tipo_usuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="inf_bancarios">
+          <Key>
+            <PropertyRef Name="id_bancario" />
+          </Key>
+          <Property Name="id_bancario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_banco" Type="int" />
+          <Property Name="tarjeta" Type="varchar" MaxLength="50" />
+          <Property Name="clabe" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_centros">
+          <Key>
+            <PropertyRef Name="id_centro" />
+          </Key>
+          <Property Name="id_centro" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_centro" Type="varchar" MaxLength="10" />
+          <Property Name="id_licencia" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+          <Property Name="id_municipio" Type="int" />
+          <Property Name="colonia" Type="varchar" MaxLength="50" />
+          <Property Name="calle_num" Type="varchar" MaxLength="50" />
+          <Property Name="cp" Type="varchar" MaxLength="5" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_alt" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="email_alt" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="inf_centros_dep">
+          <Key>
+            <PropertyRef Name="id_centros_dep" />
+          </Key>
+          <Property Name="id_centros_dep" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_centro" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_clientes">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_cliente" Type="varchar" MaxLength="50" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <EntityType Name="inf_contacto">
+          <Key>
+            <PropertyRef Name="id_inf_contacto_usuario" />
+          </Key>
+          <Property Name="id_inf_contacto_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_municipio" Type="int" />
+          <Property Name="colonia" Type="varchar" MaxLength="50" />
+          <Property Name="calle_num" Type="varchar" MaxLength="50" />
+          <Property Name="cp" Type="varchar" MaxLength="5" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_alt" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="email_alt" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_contribuyentes">
+          <Key>
+            <PropertyRef Name="id_contribuyente" />
+          </Key>
+          <Property Name="id_contribuyente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_contribuyente" Type="varchar" MaxLength="50" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <EntityType Name="inf_escolares">
+          <Key>
+            <PropertyRef Name="id_escolar" />
+          </Key>
+          <Property Name="id_escolar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_grado_escolar" Type="int" />
+          <Property Name="id_lenguaje" Type="int" Nullable="false" />
+          <Property Name="id_nivel_lenguaje" Type="int" Nullable="false" />
+          <Property Name="id_especialidad_escolar" Type="int" Nullable="false" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_fiscales">
+          <Key>
+            <PropertyRef Name="id_fiscales" />
+          </Key>
+          <Property Name="id_fiscales" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razon_social" Type="varchar" MaxLength="50" />
+          <Property Name="id_tipo_rfc" Type="int" />
+          <Property Name="rfc" Type="varchar" MaxLength="50" />
+          <Property Name="id_municipio" Type="int" />
+          <Property Name="colonia" Type="varchar" MaxLength="50" />
+          <Property Name="calle_num" Type="varchar" MaxLength="50" />
+          <Property Name="cp" Type="varchar" MaxLength="5" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" />
+          <Property Name="telefono_alt" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="email_alt" Type="varchar" MaxLength="50" />
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" Nullable="false" />
+          <Property Name="codigo_producto" Type="varchar" MaxLength="50" />
+          <Property Name="desc_producto" Type="varchar" MaxLength="50" />
+          <Property Name="id_marca" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'db_im.dbo.inf_productos_dep' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="inf_productos_dep">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto_dep" Type="int" />
+          <Property Name="id_caracteristica" Type="int" />
+          <Property Name="cantidad" Type="int" />
+          <Property Name="precio" Type="money" />
+          <Property Name="cantidad_menor" Type="int" />
+          <Property Name="id_producto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inf_proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_proveedor" Type="nchar" MaxLength="10" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <EntityType Name="inf_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="codigo_usuario" Type="varchar" MaxLength="50" />
+          <Property Name="nombres" Type="varchar" MaxLength="50" />
+          <Property Name="a_paterno" Type="varchar" MaxLength="50" />
+          <Property Name="a_materno" Type="varchar" MaxLength="50" />
+          <Property Name="clave" Type="varchar" MaxLength="50" />
+          <Property Name="id_genero" Type="int" />
+          <Property Name="id_estatus" Type="int" />
+          <Property Name="id_tipo_usuario" Type="int" />
+          <Property Name="fecha_nacimiento" Type="date" />
+          <Property Name="fecha_registro" Type="date" />
+        </EntityType>
+        <Association Name="FK_centros_dep_centros">
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="1" />
+          <End Role="inf_centros_dep" Type="Self.inf_centros_dep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_centros">
+              <PropertyRef Name="id_centro" />
+            </Principal>
+            <Dependent Role="inf_centros_dep">
+              <PropertyRef Name="id_centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_centros_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_centros">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_centros_licencias">
+          <End Role="fact_licencias" Type="Self.fact_licencias" Multiplicity="0..1" />
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_licencias">
+              <PropertyRef Name="id_licencia" />
+            </Principal>
+            <Dependent Role="inf_centros">
+              <PropertyRef Name="id_licencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_departamentos_areas">
+          <End Role="fact_areas" Type="Self.fact_areas" Multiplicity="0..1" />
+          <End Role="fact_departamentos" Type="Self.fact_departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_areas">
+              <PropertyRef Name="id_area" />
+            </Principal>
+            <Dependent Role="fact_departamentos">
+              <PropertyRef Name="id_area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_especialidad_escolar">
+          <End Role="fact_especialidad_escolar" Type="Self.fact_especialidad_escolar" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_especialidad_escolar">
+              <PropertyRef Name="id_especialidad_escolar" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_especialidad_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_lenguajes">
+          <End Role="fact_lenguajes" Type="Self.fact_lenguajes" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_lenguajes">
+              <PropertyRef Name="id_lenguaje" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_lenguaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_nivel_lenguaje">
+          <End Role="fact_nivel_lenguaje" Type="Self.fact_nivel_lenguaje" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_nivel_lenguaje">
+              <PropertyRef Name="id_nivel_lenguaje" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_nivel_lenguaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_especialidad_escolar_tipo_escolar">
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="1" />
+          <End Role="fact_especialidad_escolar" Type="Self.fact_especialidad_escolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Principal>
+            <Dependent Role="fact_especialidad_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estados_paises">
+          <End Role="fact_paises" Type="Self.fact_paises" Multiplicity="0..1" />
+          <End Role="fact_estados" Type="Self.fact_estados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_paises">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="fact_estados">
+              <PropertyRef Name="id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fact_grado_escolar_fact_tipo_escolar">
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="1" />
+          <End Role="fact_grado_escolar" Type="Self.fact_grado_escolar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Principal>
+            <Dependent Role="fact_grado_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_bancarios_bancos">
+          <End Role="fact_bancos" Type="Self.fact_bancos" Multiplicity="0..1" />
+          <End Role="inf_bancarios" Type="Self.inf_bancarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_bancos">
+              <PropertyRef Name="id_banco" />
+            </Principal>
+            <Dependent Role="inf_bancarios">
+              <PropertyRef Name="id_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_bancarios_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_bancarios" Type="Self.inf_bancarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_bancarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_centros_dep_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_centros_dep" Type="Self.inf_centros_dep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_centros_dep">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_clientes_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_clientes" Type="Self.inf_clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_clientes">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contacto_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_contacto" Type="Self.inf_contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_contacto">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contacto_municipios">
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="0..1" />
+          <End Role="inf_contacto" Type="Self.inf_contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_municipios">
+              <PropertyRef Name="id_municipio" />
+            </Principal>
+            <Dependent Role="inf_contacto">
+              <PropertyRef Name="id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contribuyentes_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_contribuyentes" Type="Self.inf_contribuyentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_contribuyentes">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_fiscales_fact_municipios">
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="0..1" />
+          <End Role="inf_fiscales" Type="Self.inf_fiscales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_municipios">
+              <PropertyRef Name="id_municipio" />
+            </Principal>
+            <Dependent Role="inf_fiscales">
+              <PropertyRef Name="id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_fiscales_fact_tipo_rfc">
+          <End Role="fact_tipo_rfc" Type="Self.fact_tipo_rfc" Multiplicity="0..1" />
+          <End Role="inf_fiscales" Type="Self.inf_fiscales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_rfc">
+              <PropertyRef Name="id_tipo_rfc" />
+            </Principal>
+            <Dependent Role="inf_fiscales">
+              <PropertyRef Name="id_tipo_rfc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_proveedor_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_proveedor" Type="Self.inf_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_proveedor">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_estatus1">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_generos">
+          <End Role="fact_generos" Type="Self.fact_generos" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_tipo_usuarios">
+          <End Role="fact_tipo_usuarios" Type="Self.fact_tipo_usuarios" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_usuarios">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marcas_secciones">
+          <End Role="fact_secciones" Type="Self.fact_secciones" Multiplicity="0..1" />
+          <End Role="fact_marcas" Type="Self.fact_marcas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_secciones">
+              <PropertyRef Name="id_seccion" />
+            </Principal>
+            <Dependent Role="fact_marcas">
+              <PropertyRef Name="id_seccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_municipios_estados">
+          <End Role="fact_estados" Type="Self.fact_estados" Multiplicity="0..1" />
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estados">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="fact_municipios">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_dep_productos">
+          <End Role="inf_productos" Type="Self.inf_productos" Multiplicity="1" />
+          <End Role="inf_productos_dep" Type="Self.inf_productos_dep" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inf_productos">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="inf_productos_dep">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_marcas">
+          <End Role="fact_marcas" Type="Self.fact_marcas" Multiplicity="0..1" />
+          <End Role="inf_productos" Type="Self.inf_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_marcas">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="inf_productos">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_secciones_departamentos">
+          <End Role="fact_departamentos" Type="Self.fact_departamentos" Multiplicity="0..1" />
+          <End Role="fact_secciones" Type="Self.fact_secciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_departamentos">
+              <PropertyRef Name="id_departamento" />
+            </Principal>
+            <Dependent Role="fact_secciones">
+              <PropertyRef Name="id_departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipo_escolar_nivel_escolar">
+          <End Role="fact_nivel_escolar" Type="Self.fact_nivel_escolar" Multiplicity="1" />
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_nivel_escolar">
+              <PropertyRef Name="id_nivel_escolar" />
+            </Principal>
+            <Dependent Role="fact_tipo_escolar">
+              <PropertyRef Name="id_nivel_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_imModelStoreContainer">
+          <EntitySet Name="fact_areas" EntityType="Self.fact_areas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_bancos" EntityType="Self.fact_bancos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_departamentos" EntityType="Self.fact_departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_especialidad_escolar" EntityType="Self.fact_especialidad_escolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_estados" EntityType="Self.fact_estados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_estatus" EntityType="Self.fact_estatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_generos" EntityType="Self.fact_generos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_lenguajes" EntityType="Self.fact_lenguajes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_licencias" EntityType="Self.fact_licencias" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_marcas" EntityType="Self.fact_marcas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_municipios" EntityType="Self.fact_municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_nivel_escolar" EntityType="Self.fact_nivel_escolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_nivel_lenguaje" EntityType="Self.fact_nivel_lenguaje" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_paises" EntityType="Self.fact_paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_secciones" EntityType="Self.fact_secciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_tipo_escolar" EntityType="Self.fact_tipo_escolar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_tipo_rfc" EntityType="Self.fact_tipo_rfc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_tipo_usuarios" EntityType="Self.fact_tipo_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_bancarios" EntityType="Self.inf_bancarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_centros" EntityType="Self.inf_centros" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_centros_dep" EntityType="Self.inf_centros_dep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_clientes" EntityType="Self.inf_clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_contacto" EntityType="Self.inf_contacto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_contribuyentes" EntityType="Self.inf_contribuyentes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_escolares" EntityType="Self.inf_escolares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_fiscales" EntityType="Self.inf_fiscales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_productos" EntityType="Self.inf_productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_proveedor" EntityType="Self.inf_proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inf_usuarios" EntityType="Self.inf_usuarios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="fact_grado_escolar" EntityType="Self.fact_grado_escolar" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [fact_grado_escolar].[id_grado_escolar] AS [id_grado_escolar], 
+    [fact_grado_escolar].[desc_grado_escolar] AS [desc_grado_escolar], 
+    [fact_grado_escolar].[id_tipo_escolar] AS [id_tipo_escolar]
+    FROM [dbo].[fact_grado_escolar] AS [fact_grado_escolar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="inf_productos_dep" EntityType="Self.inf_productos_dep" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [inf_productos_dep].[id_producto_dep] AS [id_producto_dep], 
+    [inf_productos_dep].[id_caracteristica] AS [id_caracteristica], 
+    [inf_productos_dep].[cantidad] AS [cantidad], 
+    [inf_productos_dep].[precio] AS [precio], 
+    [inf_productos_dep].[cantidad_menor] AS [cantidad_menor], 
+    [inf_productos_dep].[id_producto] AS [id_producto]
+    FROM [dbo].[inf_productos_dep] AS [inf_productos_dep]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_centros_dep_centros" Association="Self.FK_centros_dep_centros">
+            <End Role="inf_centros" EntitySet="inf_centros" />
+            <End Role="inf_centros_dep" EntitySet="inf_centros_dep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_centros_estatus" Association="Self.FK_centros_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_centros" EntitySet="inf_centros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_centros_licencias" Association="Self.FK_centros_licencias">
+            <End Role="fact_licencias" EntitySet="fact_licencias" />
+            <End Role="inf_centros" EntitySet="inf_centros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_departamentos_areas" Association="Self.FK_departamentos_areas">
+            <End Role="fact_areas" EntitySet="fact_areas" />
+            <End Role="fact_departamentos" EntitySet="fact_departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_especialidad_escolar" Association="Self.FK_escolares_especialidad_escolar">
+            <End Role="fact_especialidad_escolar" EntitySet="fact_especialidad_escolar" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_inf_usuarios" Association="Self.FK_escolares_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_lenguajes" Association="Self.FK_escolares_lenguajes">
+            <End Role="fact_lenguajes" EntitySet="fact_lenguajes" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_nivel_lenguaje" Association="Self.FK_escolares_nivel_lenguaje">
+            <End Role="fact_nivel_lenguaje" EntitySet="fact_nivel_lenguaje" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_especialidad_escolar_tipo_escolar" Association="Self.FK_especialidad_escolar_tipo_escolar">
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+            <End Role="fact_especialidad_escolar" EntitySet="fact_especialidad_escolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estados_paises" Association="Self.FK_estados_paises">
+            <End Role="fact_paises" EntitySet="fact_paises" />
+            <End Role="fact_estados" EntitySet="fact_estados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fact_grado_escolar_fact_tipo_escolar" Association="Self.FK_fact_grado_escolar_fact_tipo_escolar">
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+            <End Role="fact_grado_escolar" EntitySet="fact_grado_escolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_bancarios_bancos" Association="Self.FK_inf_bancarios_bancos">
+            <End Role="fact_bancos" EntitySet="fact_bancos" />
+            <End Role="inf_bancarios" EntitySet="inf_bancarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_bancarios_inf_usuarios" Association="Self.FK_inf_bancarios_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_bancarios" EntitySet="inf_bancarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_centros_dep_inf_usuarios" Association="Self.FK_inf_centros_dep_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_centros_dep" EntitySet="inf_centros_dep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_clientes_estatus" Association="Self.FK_inf_clientes_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_clientes" EntitySet="inf_clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contacto_inf_usuarios" Association="Self.FK_inf_contacto_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_contacto" EntitySet="inf_contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contacto_municipios" Association="Self.FK_inf_contacto_municipios">
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+            <End Role="inf_contacto" EntitySet="inf_contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contribuyentes_estatus" Association="Self.FK_inf_contribuyentes_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_contribuyentes" EntitySet="inf_contribuyentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_fiscales_fact_municipios" Association="Self.FK_inf_fiscales_fact_municipios">
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+            <End Role="inf_fiscales" EntitySet="inf_fiscales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_fiscales_fact_tipo_rfc" Association="Self.FK_inf_fiscales_fact_tipo_rfc">
+            <End Role="fact_tipo_rfc" EntitySet="fact_tipo_rfc" />
+            <End Role="inf_fiscales" EntitySet="inf_fiscales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_proveedor_estatus" Association="Self.FK_inf_proveedor_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_proveedor" EntitySet="inf_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_estatus1" Association="Self.FK_inf_usuarios_estatus1">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_generos" Association="Self.FK_inf_usuarios_generos">
+            <End Role="fact_generos" EntitySet="fact_generos" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_tipo_usuarios" Association="Self.FK_inf_usuarios_tipo_usuarios">
+            <End Role="fact_tipo_usuarios" EntitySet="fact_tipo_usuarios" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marcas_secciones" Association="Self.FK_marcas_secciones">
+            <End Role="fact_secciones" EntitySet="fact_secciones" />
+            <End Role="fact_marcas" EntitySet="fact_marcas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_municipios_estados" Association="Self.FK_municipios_estados">
+            <End Role="fact_estados" EntitySet="fact_estados" />
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_dep_productos" Association="Self.FK_productos_dep_productos">
+            <End Role="inf_productos" EntitySet="inf_productos" />
+            <End Role="inf_productos_dep" EntitySet="inf_productos_dep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_marcas" Association="Self.FK_productos_marcas">
+            <End Role="fact_marcas" EntitySet="fact_marcas" />
+            <End Role="inf_productos" EntitySet="inf_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_secciones_departamentos" Association="Self.FK_secciones_departamentos">
+            <End Role="fact_departamentos" EntitySet="fact_departamentos" />
+            <End Role="fact_secciones" EntitySet="fact_secciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipo_escolar_nivel_escolar" Association="Self.FK_tipo_escolar_nivel_escolar">
+            <End Role="fact_nivel_escolar" EntitySet="fact_nivel_escolar" />
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_imModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="fact_areas">
+          <Key>
+            <PropertyRef Name="id_area" />
+          </Key>
+          <Property Name="id_area" Type="Int32" Nullable="false" />
+          <Property Name="desc_area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fact_departamentos" Relationship="Self.FK_departamentos_areas" FromRole="fact_areas" ToRole="fact_departamentos" />
+        </EntityType>
+        <EntityType Name="fact_bancos">
+          <Key>
+            <PropertyRef Name="id_banco" />
+          </Key>
+          <Property Name="id_banco" Type="Int32" Nullable="false" />
+          <Property Name="desc_banco" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_bancarios" Relationship="Self.FK_inf_bancarios_bancos" FromRole="fact_bancos" ToRole="inf_bancarios" />
+        </EntityType>
+        <EntityType Name="fact_departamentos">
+          <Key>
+            <PropertyRef Name="id_departamento" />
+          </Key>
+          <Property Name="id_departamento" Type="Int32" Nullable="false" />
+          <Property Name="desc_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_area" Type="Int32" />
+          <NavigationProperty Name="fact_areas" Relationship="Self.FK_departamentos_areas" FromRole="fact_departamentos" ToRole="fact_areas" />
+          <NavigationProperty Name="fact_secciones" Relationship="Self.FK_secciones_departamentos" FromRole="fact_departamentos" ToRole="fact_secciones" />
+        </EntityType>
+        <EntityType Name="fact_especialidad_escolar">
+          <Key>
+            <PropertyRef Name="id_especialidad_escolar" />
+          </Key>
+          <Property Name="id_especialidad_escolar" Type="Int32" Nullable="false" />
+          <Property Name="desc_especialidad_escolar" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_escolar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="inf_escolares" Relationship="Self.FK_escolares_especialidad_escolar" FromRole="fact_especialidad_escolar" ToRole="inf_escolares" />
+          <NavigationProperty Name="fact_tipo_escolar" Relationship="Self.FK_especialidad_escolar_tipo_escolar" FromRole="fact_especialidad_escolar" ToRole="fact_tipo_escolar" />
+        </EntityType>
+        <EntityType Name="fact_estados">
+          <Key>
+            <PropertyRef Name="id_estado" />
+          </Key>
+          <Property Name="id_estado" Type="Int32" Nullable="false" />
+          <Property Name="desc_estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_pais" Type="Int32" />
+          <NavigationProperty Name="fact_paises" Relationship="Self.FK_estados_paises" FromRole="fact_estados" ToRole="fact_paises" />
+          <NavigationProperty Name="fact_municipios" Relationship="Self.FK_municipios_estados" FromRole="fact_estados" ToRole="fact_municipios" />
+        </EntityType>
+        <EntityType Name="fact_estatus">
+          <Key>
+            <PropertyRef Name="id_estatus" />
+          </Key>
+          <Property Name="id_estatus" Type="Int32" Nullable="false" />
+          <Property Name="desc_estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_centros" Relationship="Self.FK_centros_estatus" FromRole="fact_estatus" ToRole="inf_centros" />
+          <NavigationProperty Name="inf_clientes" Relationship="Self.FK_inf_clientes_estatus" FromRole="fact_estatus" ToRole="inf_clientes" />
+          <NavigationProperty Name="inf_contribuyentes" Relationship="Self.FK_inf_contribuyentes_estatus" FromRole="fact_estatus" ToRole="inf_contribuyentes" />
+          <NavigationProperty Name="inf_proveedor" Relationship="Self.FK_inf_proveedor_estatus" FromRole="fact_estatus" ToRole="inf_proveedor" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_usuarios_estatus1" FromRole="fact_estatus" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="fact_generos">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Name="id_genero" Type="Int32" Nullable="false" />
+          <Property Name="desc_genero" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_usuarios_generos" FromRole="fact_generos" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="fact_lenguajes">
+          <Key>
+            <PropertyRef Name="id_lenguaje" />
+          </Key>
+          <Property Name="id_lenguaje" Type="Int32" Nullable="false" />
+          <Property Name="desc_lenguaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_escolares" Relationship="Self.FK_escolares_lenguajes" FromRole="fact_lenguajes" ToRole="inf_escolares" />
+        </EntityType>
+        <EntityType Name="fact_licencias">
+          <Key>
+            <PropertyRef Name="id_licencia" />
+          </Key>
+          <Property Name="id_licencia" Type="Int32" Nullable="false" />
+          <Property Name="desc_licencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="caracteristicas" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_centros" Relationship="Self.FK_centros_licencias" FromRole="fact_licencias" ToRole="inf_centros" />
+        </EntityType>
+        <EntityType Name="fact_marcas">
+          <Key>
+            <PropertyRef Name="id_marca" />
+          </Key>
+          <Property Name="id_marca" Type="Int32" Nullable="false" />
+          <Property Name="desc_marca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_seccion" Type="Int32" />
+          <NavigationProperty Name="fact_secciones" Relationship="Self.FK_marcas_secciones" FromRole="fact_marcas" ToRole="fact_secciones" />
+          <NavigationProperty Name="inf_productos" Relationship="Self.FK_productos_marcas" FromRole="fact_marcas" ToRole="inf_productos" />
+        </EntityType>
+        <EntityType Name="fact_municipios">
+          <Key>
+            <PropertyRef Name="id_municipio" />
+          </Key>
+          <Property Name="id_municipio" Type="Int32" Nullable="false" />
+          <Property Name="desc_municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estado" Type="Int32" />
+          <NavigationProperty Name="fact_estados" Relationship="Self.FK_municipios_estados" FromRole="fact_municipios" ToRole="fact_estados" />
+          <NavigationProperty Name="inf_contacto" Relationship="Self.FK_inf_contacto_municipios" FromRole="fact_municipios" ToRole="inf_contacto" />
+          <NavigationProperty Name="inf_fiscales" Relationship="Self.FK_inf_fiscales_fact_municipios" FromRole="fact_municipios" ToRole="inf_fiscales" />
+        </EntityType>
+        <EntityType Name="fact_nivel_escolar">
+          <Key>
+            <PropertyRef Name="id_nivel_escolar" />
+          </Key>
+          <Property Name="id_nivel_escolar" Type="Int32" Nullable="false" />
+          <Property Name="desc_nivel_escolar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fact_tipo_escolar" Relationship="Self.FK_tipo_escolar_nivel_escolar" FromRole="fact_nivel_escolar" ToRole="fact_tipo_escolar" />
+        </EntityType>
+        <EntityType Name="fact_nivel_lenguaje">
+          <Key>
+            <PropertyRef Name="id_nivel_lenguaje" />
+          </Key>
+          <Property Name="id_nivel_lenguaje" Type="Int32" Nullable="false" />
+          <Property Name="desc_nivel_lenguaje" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_escolares" Relationship="Self.FK_escolares_nivel_lenguaje" FromRole="fact_nivel_lenguaje" ToRole="inf_escolares" />
+        </EntityType>
+        <EntityType Name="fact_paises">
+          <Key>
+            <PropertyRef Name="id_pais" />
+          </Key>
+          <Property Name="id_pais" Type="Int32" Nullable="false" />
+          <Property Name="desc_pais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fact_estados" Relationship="Self.FK_estados_paises" FromRole="fact_paises" ToRole="fact_estados" />
+        </EntityType>
+        <EntityType Name="fact_secciones">
+          <Key>
+            <PropertyRef Name="id_seccion" />
+          </Key>
+          <Property Name="id_seccion" Type="Int32" Nullable="false" />
+          <Property Name="desc_seccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_departamento" Type="Int32" />
+          <NavigationProperty Name="fact_departamentos" Relationship="Self.FK_secciones_departamentos" FromRole="fact_secciones" ToRole="fact_departamentos" />
+          <NavigationProperty Name="fact_marcas" Relationship="Self.FK_marcas_secciones" FromRole="fact_secciones" ToRole="fact_marcas" />
+        </EntityType>
+        <EntityType Name="fact_tipo_escolar">
+          <Key>
+            <PropertyRef Name="id_tipo_escolar" />
+          </Key>
+          <Property Name="id_tipo_escolar" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_escolar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_nivel_escolar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fact_especialidad_escolar" Relationship="Self.FK_especialidad_escolar_tipo_escolar" FromRole="fact_tipo_escolar" ToRole="fact_especialidad_escolar" />
+          <NavigationProperty Name="fact_nivel_escolar" Relationship="Self.FK_tipo_escolar_nivel_escolar" FromRole="fact_tipo_escolar" ToRole="fact_nivel_escolar" />
+          <NavigationProperty Name="fact_grado_escolar" Relationship="Self.FK_fact_grado_escolar_fact_tipo_escolar" FromRole="fact_tipo_escolar" ToRole="fact_grado_escolar" />
+        </EntityType>
+        <EntityType Name="fact_tipo_rfc">
+          <Key>
+            <PropertyRef Name="id_tipo_rfc" />
+          </Key>
+          <Property Name="id_tipo_rfc" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_fiscales" Relationship="Self.FK_inf_fiscales_fact_tipo_rfc" FromRole="fact_tipo_rfc" ToRole="inf_fiscales" />
+        </EntityType>
+        <EntityType Name="fact_tipo_usuarios">
+          <Key>
+            <PropertyRef Name="id_tipo_usuario" />
+          </Key>
+          <Property Name="id_tipo_usuario" Type="Int32" Nullable="false" />
+          <Property Name="desc_tipo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_usuarios_tipo_usuarios" FromRole="fact_tipo_usuarios" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="inf_bancarios">
+          <Key>
+            <PropertyRef Name="id_bancario" />
+          </Key>
+          <Property Name="id_bancario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_banco" Type="Int32" />
+          <Property Name="tarjeta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clabe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="fact_bancos" Relationship="Self.FK_inf_bancarios_bancos" FromRole="inf_bancarios" ToRole="fact_bancos" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_bancarios_inf_usuarios" FromRole="inf_bancarios" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="inf_centros">
+          <Key>
+            <PropertyRef Name="id_centro" />
+          </Key>
+          <Property Name="id_centro" Type="Guid" Nullable="false" />
+          <Property Name="codigo_centro" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="id_licencia" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <Property Name="id_municipio" Type="Int32" />
+          <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="calle_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="fact_estatus" Relationship="Self.FK_centros_estatus" FromRole="inf_centros" ToRole="fact_estatus" />
+          <NavigationProperty Name="fact_licencias" Relationship="Self.FK_centros_licencias" FromRole="inf_centros" ToRole="fact_licencias" />
+          <NavigationProperty Name="inf_centros_dep" Relationship="Self.FK_centros_dep_centros" FromRole="inf_centros" ToRole="inf_centros_dep" />
+        </EntityType>
+        <EntityType Name="inf_centros_dep">
+          <Key>
+            <PropertyRef Name="id_centros_dep" />
+          </Key>
+          <Property Name="id_centros_dep" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_centro" Type="Guid" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="inf_centros" Relationship="Self.FK_centros_dep_centros" FromRole="inf_centros_dep" ToRole="inf_centros" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_centros_dep_inf_usuarios" FromRole="inf_centros_dep" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="inf_clientes">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Guid" Nullable="false" />
+          <Property Name="codigo_cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_estatus" Relationship="Self.FK_inf_clientes_estatus" FromRole="inf_clientes" ToRole="fact_estatus" />
+        </EntityType>
+        <EntityType Name="inf_contacto">
+          <Key>
+            <PropertyRef Name="id_inf_contacto_usuario" />
+          </Key>
+          <Property Name="id_inf_contacto_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_municipio" Type="Int32" />
+          <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="calle_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="fact_municipios" Relationship="Self.FK_inf_contacto_municipios" FromRole="inf_contacto" ToRole="fact_municipios" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_inf_contacto_inf_usuarios" FromRole="inf_contacto" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="inf_contribuyentes">
+          <Key>
+            <PropertyRef Name="id_contribuyente" />
+          </Key>
+          <Property Name="id_contribuyente" Type="Guid" Nullable="false" />
+          <Property Name="codigo_contribuyente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_estatus" Relationship="Self.FK_inf_contribuyentes_estatus" FromRole="inf_contribuyentes" ToRole="fact_estatus" />
+        </EntityType>
+        <EntityType Name="inf_escolares">
+          <Key>
+            <PropertyRef Name="id_escolar" />
+          </Key>
+          <Property Name="id_escolar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_grado_escolar" Type="Int32" />
+          <Property Name="id_lenguaje" Type="Int32" Nullable="false" />
+          <Property Name="id_nivel_lenguaje" Type="Int32" Nullable="false" />
+          <Property Name="id_especialidad_escolar" Type="Int32" Nullable="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="fact_especialidad_escolar" Relationship="Self.FK_escolares_especialidad_escolar" FromRole="inf_escolares" ToRole="fact_especialidad_escolar" />
+          <NavigationProperty Name="fact_lenguajes" Relationship="Self.FK_escolares_lenguajes" FromRole="inf_escolares" ToRole="fact_lenguajes" />
+          <NavigationProperty Name="fact_nivel_lenguaje" Relationship="Self.FK_escolares_nivel_lenguaje" FromRole="inf_escolares" ToRole="fact_nivel_lenguaje" />
+          <NavigationProperty Name="inf_usuarios" Relationship="Self.FK_escolares_inf_usuarios" FromRole="inf_escolares" ToRole="inf_usuarios" />
+        </EntityType>
+        <EntityType Name="inf_fiscales">
+          <Key>
+            <PropertyRef Name="id_fiscales" />
+          </Key>
+          <Property Name="id_fiscales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="razon_social" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_rfc" Type="Int32" />
+          <Property Name="rfc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_municipio" Type="Int32" />
+          <Property Name="colonia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="calle_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email_alt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="fact_municipios" Relationship="Self.FK_inf_fiscales_fact_municipios" FromRole="inf_fiscales" ToRole="fact_municipios" />
+          <NavigationProperty Name="fact_tipo_rfc" Relationship="Self.FK_inf_fiscales_fact_tipo_rfc" FromRole="inf_fiscales" ToRole="fact_tipo_rfc" />
+        </EntityType>
+        <EntityType Name="inf_productos">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <Property Name="codigo_producto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="desc_producto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_marca" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_marcas" Relationship="Self.FK_productos_marcas" FromRole="inf_productos" ToRole="fact_marcas" />
+          <NavigationProperty Name="inf_productos_dep" Relationship="Self.FK_productos_dep_productos" FromRole="inf_productos" ToRole="inf_productos_dep" />
+        </EntityType>
+        <EntityType Name="inf_proveedor">
+          <Key>
+            <PropertyRef Name="id_proveedor" />
+          </Key>
+          <Property Name="id_proveedor" Type="Guid" Nullable="false" />
+          <Property Name="codigo_proveedor" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_estatus" Relationship="Self.FK_inf_proveedor_estatus" FromRole="inf_proveedor" ToRole="fact_estatus" />
+        </EntityType>
+        <EntityType Name="inf_usuarios">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="Guid" Nullable="false" />
+          <Property Name="codigo_usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_paterno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="a_materno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_genero" Type="Int32" />
+          <Property Name="id_estatus" Type="Int32" />
+          <Property Name="id_tipo_usuario" Type="Int32" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="0" />
+          <Property Name="fecha_registro" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="fact_estatus" Relationship="Self.FK_inf_usuarios_estatus1" FromRole="inf_usuarios" ToRole="fact_estatus" />
+          <NavigationProperty Name="fact_generos" Relationship="Self.FK_inf_usuarios_generos" FromRole="inf_usuarios" ToRole="fact_generos" />
+          <NavigationProperty Name="fact_tipo_usuarios" Relationship="Self.FK_inf_usuarios_tipo_usuarios" FromRole="inf_usuarios" ToRole="fact_tipo_usuarios" />
+          <NavigationProperty Name="inf_bancarios" Relationship="Self.FK_inf_bancarios_inf_usuarios" FromRole="inf_usuarios" ToRole="inf_bancarios" />
+          <NavigationProperty Name="inf_centros_dep" Relationship="Self.FK_inf_centros_dep_inf_usuarios" FromRole="inf_usuarios" ToRole="inf_centros_dep" />
+          <NavigationProperty Name="inf_contacto" Relationship="Self.FK_inf_contacto_inf_usuarios" FromRole="inf_usuarios" ToRole="inf_contacto" />
+          <NavigationProperty Name="inf_escolares" Relationship="Self.FK_escolares_inf_usuarios" FromRole="inf_usuarios" ToRole="inf_escolares" />
+        </EntityType>
+        <EntityType Name="fact_grado_escolar">
+          <Key>
+            <PropertyRef Name="id_tipo_escolar" />
+          </Key>
+          <Property Name="id_grado_escolar" Type="Int32" />
+          <Property Name="desc_grado_escolar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_tipo_escolar" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="fact_tipo_escolar" Relationship="Self.FK_fact_grado_escolar_fact_tipo_escolar" FromRole="fact_grado_escolar" ToRole="fact_tipo_escolar" />
+        </EntityType>
+        <EntityType Name="inf_productos_dep">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto_dep" Type="Int32" />
+          <Property Name="id_caracteristica" Type="Int32" />
+          <Property Name="cantidad" Type="Int32" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="cantidad_menor" Type="Int32" />
+          <Property Name="id_producto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="inf_productos" Relationship="Self.FK_productos_dep_productos" FromRole="inf_productos_dep" ToRole="inf_productos" />
+        </EntityType>
+        <Association Name="FK_departamentos_areas">
+          <End Role="fact_areas" Type="Self.fact_areas" Multiplicity="0..1" />
+          <End Role="fact_departamentos" Type="Self.fact_departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_areas">
+              <PropertyRef Name="id_area" />
+            </Principal>
+            <Dependent Role="fact_departamentos">
+              <PropertyRef Name="id_area" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_bancarios_bancos">
+          <End Role="fact_bancos" Type="Self.fact_bancos" Multiplicity="0..1" />
+          <End Role="inf_bancarios" Type="Self.inf_bancarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_bancos">
+              <PropertyRef Name="id_banco" />
+            </Principal>
+            <Dependent Role="inf_bancarios">
+              <PropertyRef Name="id_banco" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_secciones_departamentos">
+          <End Role="fact_departamentos" Type="Self.fact_departamentos" Multiplicity="0..1" />
+          <End Role="fact_secciones" Type="Self.fact_secciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_departamentos">
+              <PropertyRef Name="id_departamento" />
+            </Principal>
+            <Dependent Role="fact_secciones">
+              <PropertyRef Name="id_departamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_especialidad_escolar">
+          <End Role="fact_especialidad_escolar" Type="Self.fact_especialidad_escolar" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_especialidad_escolar">
+              <PropertyRef Name="id_especialidad_escolar" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_especialidad_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_especialidad_escolar_tipo_escolar">
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="1" />
+          <End Role="fact_especialidad_escolar" Type="Self.fact_especialidad_escolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Principal>
+            <Dependent Role="fact_especialidad_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_estados_paises">
+          <End Role="fact_paises" Type="Self.fact_paises" Multiplicity="0..1" />
+          <End Role="fact_estados" Type="Self.fact_estados" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_paises">
+              <PropertyRef Name="id_pais" />
+            </Principal>
+            <Dependent Role="fact_estados">
+              <PropertyRef Name="id_pais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_municipios_estados">
+          <End Role="fact_estados" Type="Self.fact_estados" Multiplicity="0..1" />
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estados">
+              <PropertyRef Name="id_estado" />
+            </Principal>
+            <Dependent Role="fact_municipios">
+              <PropertyRef Name="id_estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_centros_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_centros">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_clientes_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_clientes" Type="Self.inf_clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_clientes">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contribuyentes_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_contribuyentes" Type="Self.inf_contribuyentes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_contribuyentes">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_proveedor_estatus">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_proveedor" Type="Self.inf_proveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_proveedor">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_estatus1">
+          <End Role="fact_estatus" Type="Self.fact_estatus" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_estatus">
+              <PropertyRef Name="id_estatus" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_estatus" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_generos">
+          <End Role="fact_generos" Type="Self.fact_generos" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_generos">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_lenguajes">
+          <End Role="fact_lenguajes" Type="Self.fact_lenguajes" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_lenguajes">
+              <PropertyRef Name="id_lenguaje" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_lenguaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_centros_licencias">
+          <End Role="fact_licencias" Type="Self.fact_licencias" Multiplicity="0..1" />
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_licencias">
+              <PropertyRef Name="id_licencia" />
+            </Principal>
+            <Dependent Role="inf_centros">
+              <PropertyRef Name="id_licencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_marcas_secciones">
+          <End Role="fact_secciones" Type="Self.fact_secciones" Multiplicity="0..1" />
+          <End Role="fact_marcas" Type="Self.fact_marcas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_secciones">
+              <PropertyRef Name="id_seccion" />
+            </Principal>
+            <Dependent Role="fact_marcas">
+              <PropertyRef Name="id_seccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_marcas">
+          <End Role="fact_marcas" Type="Self.fact_marcas" Multiplicity="0..1" />
+          <End Role="inf_productos" Type="Self.inf_productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_marcas">
+              <PropertyRef Name="id_marca" />
+            </Principal>
+            <Dependent Role="inf_productos">
+              <PropertyRef Name="id_marca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contacto_municipios">
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="0..1" />
+          <End Role="inf_contacto" Type="Self.inf_contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_municipios">
+              <PropertyRef Name="id_municipio" />
+            </Principal>
+            <Dependent Role="inf_contacto">
+              <PropertyRef Name="id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_fiscales_fact_municipios">
+          <End Role="fact_municipios" Type="Self.fact_municipios" Multiplicity="0..1" />
+          <End Role="inf_fiscales" Type="Self.inf_fiscales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_municipios">
+              <PropertyRef Name="id_municipio" />
+            </Principal>
+            <Dependent Role="inf_fiscales">
+              <PropertyRef Name="id_municipio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tipo_escolar_nivel_escolar">
+          <End Role="fact_nivel_escolar" Type="Self.fact_nivel_escolar" Multiplicity="1" />
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_nivel_escolar">
+              <PropertyRef Name="id_nivel_escolar" />
+            </Principal>
+            <Dependent Role="fact_tipo_escolar">
+              <PropertyRef Name="id_nivel_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_nivel_lenguaje">
+          <End Role="fact_nivel_lenguaje" Type="Self.fact_nivel_lenguaje" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_nivel_lenguaje">
+              <PropertyRef Name="id_nivel_lenguaje" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_nivel_lenguaje" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_fact_grado_escolar_fact_tipo_escolar">
+          <End Role="fact_tipo_escolar" Type="Self.fact_tipo_escolar" Multiplicity="1" />
+          <End Role="fact_grado_escolar" Type="Self.fact_grado_escolar" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Principal>
+            <Dependent Role="fact_grado_escolar">
+              <PropertyRef Name="id_tipo_escolar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_fiscales_fact_tipo_rfc">
+          <End Role="fact_tipo_rfc" Type="Self.fact_tipo_rfc" Multiplicity="0..1" />
+          <End Role="inf_fiscales" Type="Self.inf_fiscales" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_rfc">
+              <PropertyRef Name="id_tipo_rfc" />
+            </Principal>
+            <Dependent Role="inf_fiscales">
+              <PropertyRef Name="id_tipo_rfc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_usuarios_tipo_usuarios">
+          <End Role="fact_tipo_usuarios" Type="Self.fact_tipo_usuarios" Multiplicity="0..1" />
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="fact_tipo_usuarios">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Principal>
+            <Dependent Role="inf_usuarios">
+              <PropertyRef Name="id_tipo_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_bancarios_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_bancarios" Type="Self.inf_bancarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_bancarios">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_centros_dep_centros">
+          <End Role="inf_centros" Type="Self.inf_centros" Multiplicity="1" />
+          <End Role="inf_centros_dep" Type="Self.inf_centros_dep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_centros">
+              <PropertyRef Name="id_centro" />
+            </Principal>
+            <Dependent Role="inf_centros_dep">
+              <PropertyRef Name="id_centro" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_centros_dep_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_centros_dep" Type="Self.inf_centros_dep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_centros_dep">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_inf_contacto_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_contacto" Type="Self.inf_contacto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_contacto">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_escolares_inf_usuarios">
+          <End Role="inf_usuarios" Type="Self.inf_usuarios" Multiplicity="1" />
+          <End Role="inf_escolares" Type="Self.inf_escolares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inf_usuarios">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="inf_escolares">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_productos_dep_productos">
+          <End Role="inf_productos" Type="Self.inf_productos" Multiplicity="1" />
+          <End Role="inf_productos_dep" Type="Self.inf_productos_dep" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="inf_productos">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="inf_productos_dep">
+              <PropertyRef Name="id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_imEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="fact_areas" EntityType="Self.fact_areas" />
+          <EntitySet Name="fact_bancos" EntityType="Self.fact_bancos" />
+          <EntitySet Name="fact_departamentos" EntityType="Self.fact_departamentos" />
+          <EntitySet Name="fact_especialidad_escolar" EntityType="Self.fact_especialidad_escolar" />
+          <EntitySet Name="fact_estados" EntityType="Self.fact_estados" />
+          <EntitySet Name="fact_estatus" EntityType="Self.fact_estatus" />
+          <EntitySet Name="fact_generos" EntityType="Self.fact_generos" />
+          <EntitySet Name="fact_lenguajes" EntityType="Self.fact_lenguajes" />
+          <EntitySet Name="fact_licencias" EntityType="Self.fact_licencias" />
+          <EntitySet Name="fact_marcas" EntityType="Self.fact_marcas" />
+          <EntitySet Name="fact_municipios" EntityType="Self.fact_municipios" />
+          <EntitySet Name="fact_nivel_escolar" EntityType="Self.fact_nivel_escolar" />
+          <EntitySet Name="fact_nivel_lenguaje" EntityType="Self.fact_nivel_lenguaje" />
+          <EntitySet Name="fact_paises" EntityType="Self.fact_paises" />
+          <EntitySet Name="fact_secciones" EntityType="Self.fact_secciones" />
+          <EntitySet Name="fact_tipo_escolar" EntityType="Self.fact_tipo_escolar" />
+          <EntitySet Name="fact_tipo_rfc" EntityType="Self.fact_tipo_rfc" />
+          <EntitySet Name="fact_tipo_usuarios" EntityType="Self.fact_tipo_usuarios" />
+          <EntitySet Name="inf_bancarios" EntityType="Self.inf_bancarios" />
+          <EntitySet Name="inf_centros" EntityType="Self.inf_centros" />
+          <EntitySet Name="inf_centros_dep" EntityType="Self.inf_centros_dep" />
+          <EntitySet Name="inf_clientes" EntityType="Self.inf_clientes" />
+          <EntitySet Name="inf_contacto" EntityType="Self.inf_contacto" />
+          <EntitySet Name="inf_contribuyentes" EntityType="Self.inf_contribuyentes" />
+          <EntitySet Name="inf_escolares" EntityType="Self.inf_escolares" />
+          <EntitySet Name="inf_fiscales" EntityType="Self.inf_fiscales" />
+          <EntitySet Name="inf_productos" EntityType="Self.inf_productos" />
+          <EntitySet Name="inf_proveedor" EntityType="Self.inf_proveedor" />
+          <EntitySet Name="inf_usuarios" EntityType="Self.inf_usuarios" />
+          <EntitySet Name="fact_grado_escolar" EntityType="Self.fact_grado_escolar" />
+          <EntitySet Name="inf_productos_dep" EntityType="Self.inf_productos_dep" />
+          <AssociationSet Name="FK_departamentos_areas" Association="Self.FK_departamentos_areas">
+            <End Role="fact_areas" EntitySet="fact_areas" />
+            <End Role="fact_departamentos" EntitySet="fact_departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_bancarios_bancos" Association="Self.FK_inf_bancarios_bancos">
+            <End Role="fact_bancos" EntitySet="fact_bancos" />
+            <End Role="inf_bancarios" EntitySet="inf_bancarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_secciones_departamentos" Association="Self.FK_secciones_departamentos">
+            <End Role="fact_departamentos" EntitySet="fact_departamentos" />
+            <End Role="fact_secciones" EntitySet="fact_secciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_especialidad_escolar" Association="Self.FK_escolares_especialidad_escolar">
+            <End Role="fact_especialidad_escolar" EntitySet="fact_especialidad_escolar" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_especialidad_escolar_tipo_escolar" Association="Self.FK_especialidad_escolar_tipo_escolar">
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+            <End Role="fact_especialidad_escolar" EntitySet="fact_especialidad_escolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_estados_paises" Association="Self.FK_estados_paises">
+            <End Role="fact_paises" EntitySet="fact_paises" />
+            <End Role="fact_estados" EntitySet="fact_estados" />
+          </AssociationSet>
+          <AssociationSet Name="FK_municipios_estados" Association="Self.FK_municipios_estados">
+            <End Role="fact_estados" EntitySet="fact_estados" />
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_centros_estatus" Association="Self.FK_centros_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_centros" EntitySet="inf_centros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_clientes_estatus" Association="Self.FK_inf_clientes_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_clientes" EntitySet="inf_clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contribuyentes_estatus" Association="Self.FK_inf_contribuyentes_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_contribuyentes" EntitySet="inf_contribuyentes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_proveedor_estatus" Association="Self.FK_inf_proveedor_estatus">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_proveedor" EntitySet="inf_proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_estatus1" Association="Self.FK_inf_usuarios_estatus1">
+            <End Role="fact_estatus" EntitySet="fact_estatus" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_generos" Association="Self.FK_inf_usuarios_generos">
+            <End Role="fact_generos" EntitySet="fact_generos" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_lenguajes" Association="Self.FK_escolares_lenguajes">
+            <End Role="fact_lenguajes" EntitySet="fact_lenguajes" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_centros_licencias" Association="Self.FK_centros_licencias">
+            <End Role="fact_licencias" EntitySet="fact_licencias" />
+            <End Role="inf_centros" EntitySet="inf_centros" />
+          </AssociationSet>
+          <AssociationSet Name="FK_marcas_secciones" Association="Self.FK_marcas_secciones">
+            <End Role="fact_secciones" EntitySet="fact_secciones" />
+            <End Role="fact_marcas" EntitySet="fact_marcas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_marcas" Association="Self.FK_productos_marcas">
+            <End Role="fact_marcas" EntitySet="fact_marcas" />
+            <End Role="inf_productos" EntitySet="inf_productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contacto_municipios" Association="Self.FK_inf_contacto_municipios">
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+            <End Role="inf_contacto" EntitySet="inf_contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_fiscales_fact_municipios" Association="Self.FK_inf_fiscales_fact_municipios">
+            <End Role="fact_municipios" EntitySet="fact_municipios" />
+            <End Role="inf_fiscales" EntitySet="inf_fiscales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tipo_escolar_nivel_escolar" Association="Self.FK_tipo_escolar_nivel_escolar">
+            <End Role="fact_nivel_escolar" EntitySet="fact_nivel_escolar" />
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_nivel_lenguaje" Association="Self.FK_escolares_nivel_lenguaje">
+            <End Role="fact_nivel_lenguaje" EntitySet="fact_nivel_lenguaje" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_fact_grado_escolar_fact_tipo_escolar" Association="Self.FK_fact_grado_escolar_fact_tipo_escolar">
+            <End Role="fact_tipo_escolar" EntitySet="fact_tipo_escolar" />
+            <End Role="fact_grado_escolar" EntitySet="fact_grado_escolar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_fiscales_fact_tipo_rfc" Association="Self.FK_inf_fiscales_fact_tipo_rfc">
+            <End Role="fact_tipo_rfc" EntitySet="fact_tipo_rfc" />
+            <End Role="inf_fiscales" EntitySet="inf_fiscales" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_usuarios_tipo_usuarios" Association="Self.FK_inf_usuarios_tipo_usuarios">
+            <End Role="fact_tipo_usuarios" EntitySet="fact_tipo_usuarios" />
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_bancarios_inf_usuarios" Association="Self.FK_inf_bancarios_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_bancarios" EntitySet="inf_bancarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_centros_dep_centros" Association="Self.FK_centros_dep_centros">
+            <End Role="inf_centros" EntitySet="inf_centros" />
+            <End Role="inf_centros_dep" EntitySet="inf_centros_dep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_centros_dep_inf_usuarios" Association="Self.FK_inf_centros_dep_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_centros_dep" EntitySet="inf_centros_dep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_inf_contacto_inf_usuarios" Association="Self.FK_inf_contacto_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_contacto" EntitySet="inf_contacto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_escolares_inf_usuarios" Association="Self.FK_escolares_inf_usuarios">
+            <End Role="inf_usuarios" EntitySet="inf_usuarios" />
+            <End Role="inf_escolares" EntitySet="inf_escolares" />
+          </AssociationSet>
+          <AssociationSet Name="FK_productos_dep_productos" Association="Self.FK_productos_dep_productos">
+            <End Role="inf_productos" EntitySet="inf_productos" />
+            <End Role="inf_productos_dep" EntitySet="inf_productos_dep" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_imModelStoreContainer" CdmEntityContainer="db_imEntities">
+          <EntitySetMapping Name="fact_areas">
+            <EntityTypeMapping TypeName="db_imModel.fact_areas">
+              <MappingFragment StoreEntitySet="fact_areas">
+                <ScalarProperty Name="id_area" ColumnName="id_area" />
+                <ScalarProperty Name="desc_area" ColumnName="desc_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_bancos">
+            <EntityTypeMapping TypeName="db_imModel.fact_bancos">
+              <MappingFragment StoreEntitySet="fact_bancos">
+                <ScalarProperty Name="id_banco" ColumnName="id_banco" />
+                <ScalarProperty Name="desc_banco" ColumnName="desc_banco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_departamentos">
+            <EntityTypeMapping TypeName="db_imModel.fact_departamentos">
+              <MappingFragment StoreEntitySet="fact_departamentos">
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+                <ScalarProperty Name="desc_departamento" ColumnName="desc_departamento" />
+                <ScalarProperty Name="id_area" ColumnName="id_area" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_especialidad_escolar">
+            <EntityTypeMapping TypeName="db_imModel.fact_especialidad_escolar">
+              <MappingFragment StoreEntitySet="fact_especialidad_escolar">
+                <ScalarProperty Name="id_especialidad_escolar" ColumnName="id_especialidad_escolar" />
+                <ScalarProperty Name="desc_especialidad_escolar" ColumnName="desc_especialidad_escolar" />
+                <ScalarProperty Name="id_tipo_escolar" ColumnName="id_tipo_escolar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_estados">
+            <EntityTypeMapping TypeName="db_imModel.fact_estados">
+              <MappingFragment StoreEntitySet="fact_estados">
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+                <ScalarProperty Name="desc_estado" ColumnName="desc_estado" />
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_estatus">
+            <EntityTypeMapping TypeName="db_imModel.fact_estatus">
+              <MappingFragment StoreEntitySet="fact_estatus">
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="desc_estatus" ColumnName="desc_estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_generos">
+            <EntityTypeMapping TypeName="db_imModel.fact_generos">
+              <MappingFragment StoreEntitySet="fact_generos">
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="desc_genero" ColumnName="desc_genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_lenguajes">
+            <EntityTypeMapping TypeName="db_imModel.fact_lenguajes">
+              <MappingFragment StoreEntitySet="fact_lenguajes">
+                <ScalarProperty Name="id_lenguaje" ColumnName="id_lenguaje" />
+                <ScalarProperty Name="desc_lenguaje" ColumnName="desc_lenguaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_licencias">
+            <EntityTypeMapping TypeName="db_imModel.fact_licencias">
+              <MappingFragment StoreEntitySet="fact_licencias">
+                <ScalarProperty Name="id_licencia" ColumnName="id_licencia" />
+                <ScalarProperty Name="desc_licencia" ColumnName="desc_licencia" />
+                <ScalarProperty Name="caracteristicas" ColumnName="caracteristicas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_marcas">
+            <EntityTypeMapping TypeName="db_imModel.fact_marcas">
+              <MappingFragment StoreEntitySet="fact_marcas">
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="desc_marca" ColumnName="desc_marca" />
+                <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_municipios">
+            <EntityTypeMapping TypeName="db_imModel.fact_municipios">
+              <MappingFragment StoreEntitySet="fact_municipios">
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="desc_municipio" ColumnName="desc_municipio" />
+                <ScalarProperty Name="id_estado" ColumnName="id_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_nivel_escolar">
+            <EntityTypeMapping TypeName="db_imModel.fact_nivel_escolar">
+              <MappingFragment StoreEntitySet="fact_nivel_escolar">
+                <ScalarProperty Name="id_nivel_escolar" ColumnName="id_nivel_escolar" />
+                <ScalarProperty Name="desc_nivel_escolar" ColumnName="desc_nivel_escolar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_nivel_lenguaje">
+            <EntityTypeMapping TypeName="db_imModel.fact_nivel_lenguaje">
+              <MappingFragment StoreEntitySet="fact_nivel_lenguaje">
+                <ScalarProperty Name="id_nivel_lenguaje" ColumnName="id_nivel_lenguaje" />
+                <ScalarProperty Name="desc_nivel_lenguaje" ColumnName="desc_nivel_lenguaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_paises">
+            <EntityTypeMapping TypeName="db_imModel.fact_paises">
+              <MappingFragment StoreEntitySet="fact_paises">
+                <ScalarProperty Name="id_pais" ColumnName="id_pais" />
+                <ScalarProperty Name="desc_pais" ColumnName="desc_pais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_secciones">
+            <EntityTypeMapping TypeName="db_imModel.fact_secciones">
+              <MappingFragment StoreEntitySet="fact_secciones">
+                <ScalarProperty Name="id_seccion" ColumnName="id_seccion" />
+                <ScalarProperty Name="desc_seccion" ColumnName="desc_seccion" />
+                <ScalarProperty Name="id_departamento" ColumnName="id_departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_escolar">
+            <EntityTypeMapping TypeName="db_imModel.fact_tipo_escolar">
+              <MappingFragment StoreEntitySet="fact_tipo_escolar">
+                <ScalarProperty Name="id_tipo_escolar" ColumnName="id_tipo_escolar" />
+                <ScalarProperty Name="desc_tipo_escolar" ColumnName="desc_tipo_escolar" />
+                <ScalarProperty Name="id_nivel_escolar" ColumnName="id_nivel_escolar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_rfc">
+            <EntityTypeMapping TypeName="db_imModel.fact_tipo_rfc">
+              <MappingFragment StoreEntitySet="fact_tipo_rfc">
+                <ScalarProperty Name="id_tipo_rfc" ColumnName="id_tipo_rfc" />
+                <ScalarProperty Name="desc_tipo_rfc" ColumnName="desc_tipo_rfc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_tipo_usuarios">
+            <EntityTypeMapping TypeName="db_imModel.fact_tipo_usuarios">
+              <MappingFragment StoreEntitySet="fact_tipo_usuarios">
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="desc_tipo_usuario" ColumnName="desc_tipo_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_bancarios">
+            <EntityTypeMapping TypeName="db_imModel.inf_bancarios">
+              <MappingFragment StoreEntitySet="inf_bancarios">
+                <ScalarProperty Name="id_bancario" ColumnName="id_bancario" />
+                <ScalarProperty Name="id_banco" ColumnName="id_banco" />
+                <ScalarProperty Name="tarjeta" ColumnName="tarjeta" />
+                <ScalarProperty Name="clabe" ColumnName="clabe" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_centros">
+            <EntityTypeMapping TypeName="db_imModel.inf_centros">
+              <MappingFragment StoreEntitySet="inf_centros">
+                <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+                <ScalarProperty Name="codigo_centro" ColumnName="codigo_centro" />
+                <ScalarProperty Name="id_licencia" ColumnName="id_licencia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="calle_num" ColumnName="calle_num" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono_alt" ColumnName="telefono_alt" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="email_alt" ColumnName="email_alt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_centros_dep">
+            <EntityTypeMapping TypeName="db_imModel.inf_centros_dep">
+              <MappingFragment StoreEntitySet="inf_centros_dep">
+                <ScalarProperty Name="id_centros_dep" ColumnName="id_centros_dep" />
+                <ScalarProperty Name="id_centro" ColumnName="id_centro" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_clientes">
+            <EntityTypeMapping TypeName="db_imModel.inf_clientes">
+              <MappingFragment StoreEntitySet="inf_clientes">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="codigo_cliente" ColumnName="codigo_cliente" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_contacto">
+            <EntityTypeMapping TypeName="db_imModel.inf_contacto">
+              <MappingFragment StoreEntitySet="inf_contacto">
+                <ScalarProperty Name="id_inf_contacto_usuario" ColumnName="id_inf_contacto_usuario" />
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="calle_num" ColumnName="calle_num" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono_alt" ColumnName="telefono_alt" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="email_alt" ColumnName="email_alt" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_contribuyentes">
+            <EntityTypeMapping TypeName="db_imModel.inf_contribuyentes">
+              <MappingFragment StoreEntitySet="inf_contribuyentes">
+                <ScalarProperty Name="id_contribuyente" ColumnName="id_contribuyente" />
+                <ScalarProperty Name="codigo_contribuyente" ColumnName="codigo_contribuyente" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_escolares">
+            <EntityTypeMapping TypeName="db_imModel.inf_escolares">
+              <MappingFragment StoreEntitySet="inf_escolares">
+                <ScalarProperty Name="id_escolar" ColumnName="id_escolar" />
+                <ScalarProperty Name="id_grado_escolar" ColumnName="id_grado_escolar" />
+                <ScalarProperty Name="id_lenguaje" ColumnName="id_lenguaje" />
+                <ScalarProperty Name="id_nivel_lenguaje" ColumnName="id_nivel_lenguaje" />
+                <ScalarProperty Name="id_especialidad_escolar" ColumnName="id_especialidad_escolar" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_fiscales">
+            <EntityTypeMapping TypeName="db_imModel.inf_fiscales">
+              <MappingFragment StoreEntitySet="inf_fiscales">
+                <ScalarProperty Name="id_fiscales" ColumnName="id_fiscales" />
+                <ScalarProperty Name="razon_social" ColumnName="razon_social" />
+                <ScalarProperty Name="id_tipo_rfc" ColumnName="id_tipo_rfc" />
+                <ScalarProperty Name="rfc" ColumnName="rfc" />
+                <ScalarProperty Name="id_municipio" ColumnName="id_municipio" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="calle_num" ColumnName="calle_num" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono_alt" ColumnName="telefono_alt" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="email_alt" ColumnName="email_alt" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_productos">
+            <EntityTypeMapping TypeName="db_imModel.inf_productos">
+              <MappingFragment StoreEntitySet="inf_productos">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="codigo_producto" ColumnName="codigo_producto" />
+                <ScalarProperty Name="desc_producto" ColumnName="desc_producto" />
+                <ScalarProperty Name="id_marca" ColumnName="id_marca" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_proveedor">
+            <EntityTypeMapping TypeName="db_imModel.inf_proveedor">
+              <MappingFragment StoreEntitySet="inf_proveedor">
+                <ScalarProperty Name="id_proveedor" ColumnName="id_proveedor" />
+                <ScalarProperty Name="codigo_proveedor" ColumnName="codigo_proveedor" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_usuarios">
+            <EntityTypeMapping TypeName="db_imModel.inf_usuarios">
+              <MappingFragment StoreEntitySet="inf_usuarios">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="codigo_usuario" ColumnName="codigo_usuario" />
+                <ScalarProperty Name="nombres" ColumnName="nombres" />
+                <ScalarProperty Name="a_paterno" ColumnName="a_paterno" />
+                <ScalarProperty Name="a_materno" ColumnName="a_materno" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="id_estatus" ColumnName="id_estatus" />
+                <ScalarProperty Name="id_tipo_usuario" ColumnName="id_tipo_usuario" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="fecha_registro" ColumnName="fecha_registro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fact_grado_escolar">
+            <EntityTypeMapping TypeName="db_imModel.fact_grado_escolar">
+              <MappingFragment StoreEntitySet="fact_grado_escolar">
+                <ScalarProperty Name="id_grado_escolar" ColumnName="id_grado_escolar" />
+                <ScalarProperty Name="desc_grado_escolar" ColumnName="desc_grado_escolar" />
+                <ScalarProperty Name="id_tipo_escolar" ColumnName="id_tipo_escolar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inf_productos_dep">
+            <EntityTypeMapping TypeName="db_imModel.inf_productos_dep">
+              <MappingFragment StoreEntitySet="inf_productos_dep">
+                <ScalarProperty Name="id_producto_dep" ColumnName="id_producto_dep" />
+                <ScalarProperty Name="id_caracteristica" ColumnName="id_caracteristica" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
+                <ScalarProperty Name="cantidad_menor" ColumnName="cantidad_menor" />
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

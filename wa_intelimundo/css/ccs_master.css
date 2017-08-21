@@ -1,0 +1,23 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    background-color: #a0a2a5;
+}
+
+footer {
+    
+    background-color: #e76b00;
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+   
+}
+i
+ {
+    color:white;
+}

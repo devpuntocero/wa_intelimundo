@@ -39,7 +39,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=17.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,18 +72,433 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="cont_abecedario.aspx" />
+    <Content Include="cont_preescolar.aspx" />
+    <Content Include="css\ccs_master.css" />
+    <Content Include="ctrl_acceso.aspx" />
+    <Content Include="ctrl_bancarios.aspx" />
+    <Content Include="ctrl_centros.aspx" />
+    <Content Include="ctrl_contacto.aspx" />
+    <Content Include="ctrl_escolares.aspx" />
+    <Content Include="ctrl_fiscales.aspx" />
+    <Content Include="ctrl_material.aspx" />
+    <Content Include="ctrl_menu.aspx" />
+    <Content Include="ctrl_menu_contabilidad.aspx" />
+    <Content Include="ctrl_menu_usuarios.aspx" />
+    <Content Include="ctrl_perfil.aspx" />
+    <Content Include="ctrl_productos.aspx" />
+    <Content Include="ctrl_usuario.aspx" />
+    <Content Include="db_im.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>db_im.edmx</DependentUpon>
+      <LastGenOutput>db_im.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="db_im.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>db_im.edmx</DependentUpon>
+      <LastGenOutput>db_im.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
+    <Content Include="img\centro_educativo.gif" />
+    <Content Include="img\conalep_logo.png" />
+    <Content Include="img\encb_logo.png" />
+    <Content Include="img\icem_mexico.png" />
+    <Content Include="img\ico_back.png" />
+    <Content Include="img\ico_exit.png" />
+    <Content Include="img\im.png" />
+    <Content Include="img\inacap_s.png" />
+    <Content Include="img\Ipn_logo.png" />
+    <Content Include="img\logo_im.png" />
+    <Content Include="img\png\apple.png" />
+    <Content Include="img\png\audio.png" />
+    <Content Include="img\png\audiobook-1.png" />
+    <Content Include="img\png\audiobook.png" />
+    <Content Include="img\png\book.png" />
+    <Content Include="img\png\bookmark.png" />
+    <Content Include="img\png\browser-1.png" />
+    <Content Include="img\png\browser-2.png" />
+    <Content Include="img\png\browser.png" />
+    <Content Include="img\png\calculator.png" />
+    <Content Include="img\png\certificate.png" />
+    <Content Include="img\png\chat.png" />
+    <Content Include="img\png\chemistry.png" />
+    <Content Include="img\png\chip.png" />
+    <Content Include="img\png\cloud-computing.png" />
+    <Content Include="img\png\cloud.png" />
+    <Content Include="img\png\code.png" />
+    <Content Include="img\png\crm.png" />
+    <Content Include="img\png\design.png" />
+    <Content Include="img\png\desk.png" />
+    <Content Include="img\png\desktop.png" />
+    <Content Include="img\png\doc.png" />
+    <Content Include="img\png\document.png" />
+    <Content Include="img\png\earth-globe.png" />
+    <Content Include="img\png\ebook-1.png" />
+    <Content Include="img\png\ebook-2.png" />
+    <Content Include="img\png\ebook-3.png" />
+    <Content Include="img\png\ebook.png" />
+    <Content Include="img\png\ereader.png" />
+    <Content Include="img\png\exam.png" />
+    <Content Include="img\png\folder-1.png" />
+    <Content Include="img\png\folder.png" />
+    <Content Include="img\png\geography.png" />
+    <Content Include="img\png\google-glasses.png" />
+    <Content Include="img\png\homework.png" />
+    <Content Include="img\png\idea.png" />
+    <Content Include="img\png\image.png" />
+    <Content Include="img\png\information.png" />
+    <Content Include="img\png\keyboard.png" />
+    <Content Include="img\png\laptop.png" />
+    <Content Include="img\png\learning-1.png" />
+    <Content Include="img\png\learning-2.png" />
+    <Content Include="img\png\learning.png" />
+    <Content Include="img\png\lecture.png" />
+    <Content Include="img\png\library.png" />
+    <Content Include="img\png\listening.png" />
+    <Content Include="img\png\login.png" />
+    <Content Include="img\png\medal.png" />
+    <Content Include="img\png\mkv.png" />
+    <Content Include="img\png\mortarboard.png" />
+    <Content Include="img\png\mouse.png" />
+    <Content Include="img\png\mp3.png" />
+    <Content Include="img\png\notes.png" />
+    <Content Include="img\png\open-book.png" />
+    <Content Include="img\png\pdf.png" />
+    <Content Include="img\png\pendrive.png" />
+    <Content Include="img\png\placeholder.png" />
+    <Content Include="img\png\professor.png" />
+    <Content Include="img\png\projector.png" />
+    <Content Include="img\png\question-1.png" />
+    <Content Include="img\png\question.png" />
+    <Content Include="img\png\questions.png" />
+    <Content Include="img\png\record.png" />
+    <Content Include="img\png\science-book.png" />
+    <Content Include="img\png\search-1.png" />
+    <Content Include="img\png\search-engine.png" />
+    <Content Include="img\png\search.png" />
+    <Content Include="img\png\shopping-cart.png" />
+    <Content Include="img\png\smartphone-1.png" />
+    <Content Include="img\png\smartphone-2.png" />
+    <Content Include="img\png\smartphone-3.png" />
+    <Content Include="img\png\smartphone.png" />
+    <Content Include="img\png\statistics.png" />
+    <Content Include="img\png\student-1.png" />
+    <Content Include="img\png\student-2.png" />
+    <Content Include="img\png\student-3.png" />
+    <Content Include="img\png\student.png" />
+    <Content Include="img\png\tablet.png" />
+    <Content Include="img\png\test-1.png" />
+    <Content Include="img\png\test-2.png" />
+    <Content Include="img\png\test-3.png" />
+    <Content Include="img\png\test.png" />
+    <Content Include="img\png\touchscreen.png" />
+    <Content Include="img\png\translator.png" />
+    <Content Include="img\png\tutorial.png" />
+    <Content Include="img\png\txt.png" />
+    <Content Include="img\png\university-1.png" />
+    <Content Include="img\png\university.png" />
+    <Content Include="img\png\verification.png" />
+    <Content Include="img\png\video-call.png" />
+    <Content Include="img\png\video-player-1.png" />
+    <Content Include="img\png\video-player-2.png" />
+    <Content Include="img\png\video-player-3.png" />
+    <Content Include="img\png\video-player-4.png" />
+    <Content Include="img\png\video-player.png" />
+    <Content Include="img\png\vocabulary.png" />
+    <Content Include="img\png\webcam.png" />
+    <Content Include="img\png\wikipedia-1.png" />
+    <Content Include="img\png\wikipedia.png" />
+    <Content Include="img\png\xls.png" />
+    <Content Include="img\psicologia_logo.png" />
+    <Content Include="img\pucc_s.png" />
+    <Content Include="img\sep_logo.png" />
+    <Content Include="img\unam_logo.png" />
+    <Content Include="img\upiicsa-md.png" />
+    <Content Include="Scripts\animateCss\animateCss.js" />
+    <Content Include="Scripts\animateCss\animateCss.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="mp_intelimundo.Master" />
+    <EntityDeploy Include="db_im.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>db_im.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="db_im.edmx.diagram">
+      <DependentUpon>db_im.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.1.1.js" />
+    <Content Include="Scripts\jquery-3.1.1.min.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.js" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cont_abecedario.aspx.cs">
+      <DependentUpon>cont_abecedario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cont_abecedario.aspx.designer.cs">
+      <DependentUpon>cont_abecedario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cont_preescolar.aspx.cs">
+      <DependentUpon>cont_preescolar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cont_preescolar.aspx.designer.cs">
+      <DependentUpon>cont_preescolar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_acceso.aspx.cs">
+      <DependentUpon>ctrl_acceso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_acceso.aspx.designer.cs">
+      <DependentUpon>ctrl_acceso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_bancarios.aspx.cs">
+      <DependentUpon>ctrl_bancarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_bancarios.aspx.designer.cs">
+      <DependentUpon>ctrl_bancarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_centros.aspx.cs">
+      <DependentUpon>ctrl_centros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_centros.aspx.designer.cs">
+      <DependentUpon>ctrl_centros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_contacto.aspx.cs">
+      <DependentUpon>ctrl_contacto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_contacto.aspx.designer.cs">
+      <DependentUpon>ctrl_contacto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_escolares.aspx.cs">
+      <DependentUpon>ctrl_escolares.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_escolares.aspx.designer.cs">
+      <DependentUpon>ctrl_escolares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_fiscales.aspx.cs">
+      <DependentUpon>ctrl_fiscales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_fiscales.aspx.designer.cs">
+      <DependentUpon>ctrl_fiscales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_material.aspx.cs">
+      <DependentUpon>ctrl_material.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_material.aspx.designer.cs">
+      <DependentUpon>ctrl_material.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_menu.aspx.cs">
+      <DependentUpon>ctrl_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_menu.aspx.designer.cs">
+      <DependentUpon>ctrl_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_menu_contabilidad.aspx.cs">
+      <DependentUpon>ctrl_menu_contabilidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_menu_contabilidad.aspx.designer.cs">
+      <DependentUpon>ctrl_menu_contabilidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_menu_usuarios.aspx.cs">
+      <DependentUpon>ctrl_menu_usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_menu_usuarios.aspx.designer.cs">
+      <DependentUpon>ctrl_menu_usuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_perfil.aspx.cs">
+      <DependentUpon>ctrl_perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_perfil.aspx.designer.cs">
+      <DependentUpon>ctrl_perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_productos.aspx.cs">
+      <DependentUpon>ctrl_productos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_productos.aspx.designer.cs">
+      <DependentUpon>ctrl_productos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_usuario.aspx.cs">
+      <DependentUpon>ctrl_usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ctrl_usuario.aspx.designer.cs">
+      <DependentUpon>ctrl_usuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="db_im.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_im.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_im.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="db_im.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_im.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="fact_areas.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_bancos.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_departamentos.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_especialidad_escolar.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_estados.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_estatus.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_generos.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_grado_escolar.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_lenguajes.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_licencias.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_marcas.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_municipios.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_nivel_escolar.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_nivel_lenguaje.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_paises.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_secciones.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_tipo_escolar.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_tipo_rfc.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fact_tipo_usuarios.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_bancarios.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_centros.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_centros_dep.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_clientes.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_contacto.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_contribuyentes.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_escolares.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_fiscales.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_productos.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_productos_dep.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_proveedor.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="inf_usuarios.cs">
+      <DependentUpon>db_im.tt</DependentUpon>
+    </Compile>
+    <Compile Include="mdl_encrypta.cs" />
+    <Compile Include="mp_intelimundo.Master.cs">
+      <DependentUpon>mp_intelimundo.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="mp_intelimundo.Master.designer.cs">
+      <DependentUpon>mp_intelimundo.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="materiales\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
